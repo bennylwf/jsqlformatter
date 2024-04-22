@@ -861,6 +861,12 @@ public class JSQLFormatter {
           String sqlStr = IOUtils.toString(inputStream, Charset.defaultCharset());
           System.out.println("\n-- FROM " + inputFile.getName() + "\n"
               + format(sqlStr, formatterOptions.toArray(new String[formatterOptions.size()])));
+
+          // Print out the formatted tree
+          System.out.println(JSQLFormatter.formatToTree(s));
+
+          System.out.println(JSQLFormatter.formatToTree(s, "outputFormat=ANSI"));
+          
         } catch (Exception ex) {
           throw new Exception("Error when reading from INPUT FILE " + inputFile.getAbsolutePath(),
               ex);
